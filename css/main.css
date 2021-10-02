@@ -4,3 +4,17 @@ body {
     font-family: 'Sora', sans-serif;
 }
 
+
+.container-fluid {
+    display:flex;
+
+}
+
+
+.center {
+
+    margin: 0 auto;
+    text-align: center;
+    align-items:center;
+    
+}

@@ -1,13 +1,26 @@
-.topnav {
+a {
     color: #FFD3B6;
+    font-size: 300%;
     text-decoration: none;
     font-family: 'Sora', sans-serif;
 }
 
-.topnav:hover {
-    color:#FFD3B6; 
-    text-decoration:bolder; 
+a:hover {
+    color:#FFD3B6;
     cursor:pointer;  
-    font-family: 'Sora', sans-serif;
+    text-decoration: underline;
 }
 
+.nav-1 {
+    display:inline-block;
+    margin-right: 10%;
+    margin-top: 4%;
+
+}
+
+
+.nav-2 {
+    display:inline-block;
+    margin-right: 10%;
+    margin-top: 4%;
+}

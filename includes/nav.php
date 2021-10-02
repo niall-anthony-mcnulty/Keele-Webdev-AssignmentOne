@@ -1,6 +1,9 @@
 
-<nav class='topnav'>
-    <a class='home' href='index.php'>Home</a>
-    <a href='add.php'>Add Staff</a>
+<nav class='nav-1'>
+    <a href='index.php'>Home</a>  
 </nav>
+</nav class='nav-2'>     
+    <a href='add.php'>Add</a>
+</nav>
+
 
