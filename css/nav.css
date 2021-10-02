@@ -1,0 +1,13 @@
+.topnav {
+    color: #FFD3B6;
+    text-decoration: none;
+    font-family: 'Sora', sans-serif;
+}
+
+.topnav:hover {
+    color:#FFD3B6; 
+    text-decoration:bolder; 
+    cursor:pointer;  
+    font-family: 'Sora', sans-serif;
+}
+
