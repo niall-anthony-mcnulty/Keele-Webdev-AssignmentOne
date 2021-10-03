@@ -22,8 +22,31 @@
             <div class='row justify-content-center no-gutters'>
                 <header>
                     <?php include_once 'includes/nav.php'?>
-                </header>         
+                </header>   
             </div>
+            <div class='row justify-content-center no-gutters'>
+                <header>
+                    <?php 
+                        require_once 'includes/login.php';
+                        $conn = new mysqli($hn, $un, $pw, $db);
+                        if ($conn->connect_error) die('Fatal Error');
+
+                        $query = "SELECT * FROM staff"; //query
+                        $result = $conn->query($query); //results from query
+                        
+                        if (!$result) die('Fatal Erorr');
+
+                        echo "<table>"; //start a table tag 
+                        $row = $result-> fetch_array(MYSQLI_ASSOC); // fetch rows
+                            echo "<tr><td>".$row['ID'] . "</td><td>". $row['Name']. "</td><td>" . $row['Email']. "</td><td>". $row['Position']. "</td><td> Edit </td><td> Delete </td></tr> " ; 
+                        echo "</table>"; //close table
+                        
+                        $result->close();
+                        $connection->close(); //close database connection
+                    ?>
+                </header>   
+            </div>
+
         </div>  
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
