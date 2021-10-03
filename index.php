@@ -42,7 +42,7 @@
                         echo "</table>"; //close table
                         
                         $result->close();
-                        $connection->close(); //close database connection
+                        $conn->close(); //close database connection
                     ?>
                 </header>   
             </div>
