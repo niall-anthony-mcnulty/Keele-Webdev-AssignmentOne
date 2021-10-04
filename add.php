@@ -133,7 +133,7 @@
         <div class='center'>
             <div class='row'>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <form action='add-complete.php' method='post' id='add-form'>
+                    <form action='add-complete.php' method='POST' id='add-form'>
                         <label id="name-label" for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required/>
                     

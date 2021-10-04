@@ -28,20 +28,21 @@
             require_once("includes/login.php");
 
             //get variables
-            $Name = mysqli_real_escape_string($conn, $_POST['name']);
-            $Email = mysqli_real_escape_string($conn, $_POST['email']);
-            $Position = mysqli_real_escape_string($conn, $_POST['position']);
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $position = $_POST['position'];
 
             //insert into database
-            $statement = "INSERT INTO staff (name,email,position) VALUES('$Name', '$Email', '$Position')";   
-            if(!$statement)
-                        {
-                        echo '<p> Error adding data, please try again! </p>';
-            }
-            else 
+            $sql = "INSERT INTO staff VALUES (DEFAULT,'$name', '$email', '$position')";   
+            if(mysqli_query($conn, $sql))  
             {
                 echo '<p> Successfully added to database </p>';
             }
+        
+            else 
+            {
+                echo '<p> Error adding data, please try again! </p>'.mysqli_error($conn);
+    }
             // close connection
             mysqli_close($conn);
             ?>
