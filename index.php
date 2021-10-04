@@ -11,8 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
+    <link rel="sttylesheet" href="css/table.css" media='all'>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
+
     <link rel="icon" href="images/data.png">
     <title>Staff Database</title>
 </head>
@@ -25,26 +27,50 @@
                 </header>   
             </div>
             <div class='row justify-content-center no-gutters'>
-                <header>
-                    <?php 
-                        require_once 'includes/login.php';
-                        $conn = new mysqli($hn, $un, $pw, $db);
-                        if ($conn->connect_error) die('Fatal Error');
+                <?php 
+                    require_once 'includes/login.php';
+                    $conn = new mysqli($hn, $un, $pw, $db);
+                    if ($conn->connect_error) die('Fatal Error');
 
-                        $query = "SELECT * FROM staff"; //query
-                        $result = $conn->query($query); //results from query
-                        
-                        if (!$result) die('Fatal Erorr');
+                    $query = "SELECT * FROM staff"; //query
+                    $result = $conn->query($query); //results from query
+                    
+                    if (!$result) die('Fatal Erorr');
+                ?>
 
-                        echo "<table>"; //start a table tag 
-                        $row = $result-> fetch_array(MYSQLI_ASSOC); // fetch rows
-                            echo "<tr><td>".$row['ID'] . "</td><td>". $row['Name']. "</td><td>" . $row['Email']. "</td><td>". $row['Position']. "</td><td> Edit </td><td> Delete </td></tr> " ; 
-                        echo "</table>"; //close table
-                        
-                        $result->close();
-                        $conn->close(); //close database connection
+
+                <table class='styled-table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $rows = $result->num_rows;
+                            for ($j = 0; $j < $rows ; ++$j){
+
+                                $row = $result-> fetch_array(MYSQLI_ASSOC);?>
+                                <tr>
+                                    <td><?php echo $row['ID'] ?></td>
+                                    <td><?php echo $row['Name'] ?></td>
+                                    <td><?php echo $row['Email'] ?></td>
+                                    <td><?php echo $row['Position']?></td>
+                                    <td> Edit </td>
+                                    <td> Delete </td>
+                                </tr>
+                        <?php } ?>
+                    </tbody>
+                </table> 
+                <?php 
+                    $result->close();
+                    $conn->close(); //close database connection
                     ?>
-                </header>   
             </div>
 
         </div>  
@@ -53,4 +79,3 @@
 </body>
 
 </html>
-
