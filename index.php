@@ -38,8 +38,59 @@
                     if (!$result) die('Fatal Erorr');
                 ?>
 
+                <style>
+                    table {
 
-                <table class='styled-table'>
+                        border-collapse: collapse;
+                        margin: 25px 0;
+                        font-size: 0.9em;
+                        font-family: sans-serif;
+                        min-width: 400px;
+                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+                        }
+
+
+                        /* Styling table headers */
+
+                        table thead tr {
+                        background-color: #009879;
+                        color: #ffffff;
+                        text-align: center;
+                        }
+
+                        /* Styling table cells */
+
+                        table th,
+                        table td {
+                        padding: 12px 15px;
+                        }
+
+                        /* Styling table rows */
+
+                        table tbody tr {
+                        border-bottom: 1px solid #dddddd;
+                        }
+
+                        table tbody tr:nth-of-type(even) {
+                        background-color: #f3f3f3;
+                        }
+
+                        table tbody tr:last-of-type {
+                        border-bottom: 2px solid #009879;
+                        }
+
+
+                        /* Style active row */
+
+                        styled-table tbody tr.active-row {
+                        font-weight: bold;
+                        color: #009879;
+                        }
+
+                /* table.css wouldn't work - overridden, so used inline instead */
+                </style>
+                <table>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -61,8 +112,8 @@
                                     <td><?php echo $row['Name'] ?></td>
                                     <td><?php echo $row['Email'] ?></td>
                                     <td><?php echo $row['Position']?></td>
-                                    <td> Edit </td>
-                                    <td> Delete </td>
+                                    <td><a href ='edit.php'>Edit </td>
+                                    <td>Delete </td>
                                 </tr>
                         <?php } ?>
                     </tbody>
