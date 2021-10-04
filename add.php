@@ -133,18 +133,18 @@
         <div class='center'>
             <div class='row'>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <form>
+                    <form action='add-complete.php' method='post' id='add-form'>
                         <label id="name-label" for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" required/>
                     
                         <label id="email-label" for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required/>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="default@hogwarts.com" required/>
 
                         <label id="position-label" for="position">Position</label><br>
                         <input type="text" name="position" id="position" class="form-control" placeholder="Enter your position" required/> 
                     </form> 
                     <form class='submit-button'>
-                        <input type='submit' value='Submit'>
+                        <input type='submit' value='Submit' form='add-form'>
                     </form>
                 </div>
             </div>

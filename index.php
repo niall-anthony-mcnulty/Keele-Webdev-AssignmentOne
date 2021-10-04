@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main.css" type='text/css'>
     <link rel="stylesheet" href="css/nav.css" type='text/css'> 
     <link rel="icon" href="images/data.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Staff Database</title>
 </head>
 <body>
