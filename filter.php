@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/add.css">
     <link rel='stylesheet' href='css/nav.css'>
+    <link rel='stylesheet' href='css/filter.css'>
     <link rel="icon" href="images/data.png">
     <title>Filter Staff Member</title>
 </head>
@@ -19,6 +20,7 @@
     <header>
         <?php include_once 'includes/nav.php'?>  
     </header>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>

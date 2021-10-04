@@ -1,6 +1,94 @@
-body {
 
-    background-color: #FFAAA5;
-    font-family: 'Sora', sans-serif;
-    
+form {
+    background-color:lightsalmon;
+    border-radius:0.5rem;
+    padding: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+input {
+    width:fit-content;
+    font-style:italic;
+    text-align: left;
+    margin-bottom:1rem;
+}
+
+label {
+    text-align: left;
+    align-content: left;  
+}
+
+select {
+
+    width:5rem;
+    height:2rem;
+    padding:.375rem;
+    line-height: 1.5;
+    font-style:italic;
+    text-align: left;
+    margin-bottom:1rem;
+    border-radius:0.25rem;
+    border-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    height:38px;
+    margin-top:0;
+}
+
+input[type=range] {
+
+        width: 100%;
+        height:0px;     
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  input[type=range]::-webkit-slider-thumb
+  {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    background-color:transparent;
+    background: url(../pictures/trumphead.png) center center no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -12px;
+}
+  
+form p  {
+    font-size:1.1rem;
+    text-align: center;
+    padding-bottom:1rem;
+    padding-top:0rem;
+    margin-top:1rem;
+    margin-bottom:0rem;
+   
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px azure, 1px 1px 1px azure;
+    background:transparent;
+    border: 0.2px solid azure;
+  }
+
+#rating-great {
+    float:right;
+
+}
+
+.checkbox-social {
+    display:block;
 }

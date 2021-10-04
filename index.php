@@ -11,10 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
-    <link rel="sttylesheet" href="css/table.css" media='all'>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/nav.css">
-
+    <link rel="stylesheet" href="css/main.css" type='text/css'>
+    <link rel="stylesheet" href="css/nav.css" type='text/css'> 
     <link rel="icon" href="images/data.png">
     <title>Staff Database</title>
 </head>
@@ -54,7 +52,7 @@
                         /* Styling table headers */
 
                         table thead tr {
-                        background-color: #009879;
+                        background-color: #333;
                         color: #ffffff;
                         text-align: center;
                         }
@@ -80,17 +78,9 @@
                         border-bottom: 2px solid #009879;
                         }
 
-
-                        /* Style active row */
-
-                        styled-table tbody tr.active-row {
-                        font-weight: bold;
-                        color: #009879;
-                        }
-
                 /* table.css wouldn't work - overridden, so used inline instead */
                 </style>
-                <table>
+                <table class='main-table'>
                     <thead>
                         <tr>
                             <th>ID</th>
