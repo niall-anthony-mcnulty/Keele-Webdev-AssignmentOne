@@ -103,8 +103,8 @@
                                     <td><?php echo $row['Name'] ?></td>
                                     <td><?php echo $row['Email'] ?></td>
                                     <td><?php echo $row['Position']?></td>
-                                    <td><a href ='edit.php'>Edit </td>
-                                    <td>Delete </td>
+                                    <td><a href ="edit.php?id=<?php echo $row['ID'];?>">Edit</td>
+                                    <td><a href ="delete.php?id=<?php echo $row['ID'];?>">Delete</td>
                                 </tr>
                         <?php } ?>
                     </tbody>
