@@ -139,7 +139,7 @@
 
 
         }
-                    
+             
     </style>
 
     <header>
@@ -149,6 +149,7 @@
         $position_result = $conn->query("SELECT DISTINCT position FROM staff");
         ?>
         <form>
+            <!-- Creating Form -->
             <label id="position-label" for="position">Position</label><br>
                 <select name="position" id="position" class="form-control" required> 
                     <option value="" disabled selected >Choose a position</option>
@@ -157,7 +158,62 @@
                     <option value='Senior Lecturer'>Senior Lecturer</option>
                     <option value='Lecturer'>Lecturer</option>
                 </select>
+                <form class='submit-button'>
+                    <input type='submit' id = 'Filter' value='Submit' form='add-form'>
+                </form>
         </form>
+
+        <?php 
+        if (! empty($_POST['position'])) {
+            ?>
+            <table class='main-table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $query = "SELECT * FROM staff";
+                        $i = 0;
+                        $selectedOptionCount = count($_POST['position']);
+                        $selectedOptionCount = '';
+                        while ($i < $selectedOptionCount) {
+                            $selectedOptionCount = $selectedOptionCount . "'" . $_POST['position'][$i] . "'";
+                            if ($i < $selectedOptionCount -1 ) {
+                                $selectedOptionCount = $selectedOptionCount. ", ";
+                            }
+                            $i ++;
+
+                        }
+                        $query = $query . " WHERE position in (" . $selectedOptionCount . ")";
+                        $result = $conn->query($query);
+                    }
+                    if (! empty($result)) {
+                        foreach ($result as $key => $value) {
+                            ?>
+                            <tr>
+                                <td><?php echo $result[$key]['ID'] ?></td>
+                                <td><?php echo $result[$key]['Name'] ?></td>
+                                <td><?php echo $result[$key]['Email'] ?></td>
+                                <td><?php echo $result[$key]['Position']?></td>
+                                <td><a href ="edit.php?id=<?php echo $row['ID'];?>">Edit</td>
+                                <td><a href ="delete.php?id=<?php echo $row['ID'];?>">Delete</td>
+                            </tr>
+                            <?php 
+                        }
+                        ?>
+                    
+                    </tbody>
+            </table>
+            <?php
+                    }
+            ?>
         
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
