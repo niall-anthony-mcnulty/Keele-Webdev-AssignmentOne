@@ -125,6 +125,16 @@
 
 
         }
+
+        select:required:invalid {
+            color: gray;
+        }
+        option[value=""][disabled] {
+            display: none;
+        }
+        option {
+            color: black;
+        }          
     </style>
     <header>
         <?php include_once 'includes/nav.php'?>  
@@ -141,7 +151,13 @@
                         <input type="email" name="email" id="email" class="form-control" placeholder="default@hogwarts.com" required/>
 
                         <label id="position-label" for="position">Position</label><br>
-                        <input type="text" name="position" id="position" class="form-control" placeholder="Enter your position" required/> 
+                        <select name="position" id="position" class="form-control" required> 
+                            <option value="" disabled selected >Choose a position</option>
+                            <option value='Professor'>Professor</option>
+                            <option value='Reader'>Reader</option>
+                            <option value='Senior Lecturer'>Senior Lecturer</option>
+                            <option value='Lecturer'>Lecturer</option>
+                        </select>
                     </form> 
                     <form class='submit-button'>
                         <input type='submit' value='Submit' form='add-form'>
