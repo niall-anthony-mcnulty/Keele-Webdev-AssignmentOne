@@ -153,6 +153,7 @@
             <label id="position-label" for="position">Position</label><br>
                 <select name="position" id="position" class="form-control" required> 
                     <option value="" disabled selected >Choose a position</option>
+                    <option value='ALl'>All Positions</option>
                     <option value='Professor'>Professor</option>
                     <option value='Reader'>Reader</option>
                     <option value='Senior Lecturer'>Senior Lecturer</option>
