@@ -10,9 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='css/main.css'>
     <link rel='stylesheet' href='css/nav.css'>
-    <link rel='stylesheet' href='css/filter.css'>
+    <link rel='stylesheet' href='css/main.css'>
     <link rel="icon" href="images/data.png">
     <title>Filter Staff Member</title>
 </head>
@@ -137,86 +136,150 @@
         option {
             color: black;
 
+        }
+        table {
 
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
         }
-             
-    </style>
 
-    <header>
-        <?php include_once 'includes/nav.php'?>  
-    </header>
-        <?php include 'includes/login.php';
-        $position_result = $conn->query("SELECT DISTINCT position FROM staff");
-        ?>
-        <form>
-            <!-- Creating Form -->
-            <label id="position-label" for="position">Position</label><br>
-                <select name="position" id="position" class="form-control" required> 
-                    <option value="" disabled selected >Choose a position</option>
-                    <option value='ALl'>All Positions</option>
-                    <option value='Professor'>Professor</option>
-                    <option value='Reader'>Reader</option>
-                    <option value='Senior Lecturer'>Senior Lecturer</option>
-                    <option value='Lecturer'>Lecturer</option>
-                </select>
-                <form class='submit-button'>
-                    <input type='submit' id = 'Filter' value='Submit' form='add-form'>
-                </form>
-        </form>
 
-        <?php 
-        if (! empty($_POST['position'])) {
-            ?>
-            <table class='main-table'>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Position</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        $query = "SELECT * FROM staff";
-                        $i = 0;
-                        $selectedOptionCount = count($_POST['position']);
-                        $selectedOptionCount = '';
-                        while ($i < $selectedOptionCount) {
-                            $selectedOptionCount = $selectedOptionCount . "'" . $_POST['position'][$i] . "'";
-                            if ($i < $selectedOptionCount -1 ) {
-                                $selectedOptionCount = $selectedOptionCount. ", ";
-                            }
-                            $i ++;
+        /* Styling table headers */
 
-                        }
-                        $query = $query . " WHERE position in (" . $selectedOptionCount . ")";
-                        $result = $conn->query($query);
-                    }
-                    if (! empty($result)) {
-                        foreach ($result as $key => $value) {
-                            ?>
-                            <tr>
-                                <td><?php echo $result[$key]['ID'] ?></td>
-                                <td><?php echo $result[$key]['Name'] ?></td>
-                                <td><?php echo $result[$key]['Email'] ?></td>
-                                <td><?php echo $result[$key]['Position']?></td>
-                                <td><a href ="edit.php?id=<?php echo $row['ID'];?>">Edit</td>
-                                <td><a href ="delete.php?id=<?php echo $row['ID'];?>">Delete</td>
-                            </tr>
-                            <?php 
-                        }
-                        ?>
-                    
-                    </tbody>
-            </table>
-            <?php
-                    }
-            ?>
+        table thead tr {
+        background-color: #333;
+        color: #ffffff;
+        text-align: center;
+        }
+
+        /* Styling table cells */
+
+        table th,
+        table td {
+        padding: 12px 15px;
+        }
+
+        /* Styling table rows */
+
+        table tbody tr {
+        border-bottom: 1px solid #dddddd;
+        }
+
+        table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+        }
+
+        table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+        }
         
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+                    
+    </style>
+    <div class="container">
+        <div class='center'>
+            <div class='row justify-content-center no-gutters'>
+                <header>
+                    <?php include 'includes/nav.php'?>  
+                </header>
+                <div>
+                    <form id= 'filter-form' action='<?php echo ($_SERVER['PHP_SELF']); ?>' method='post'>
+                        <!-- Creating Form -->
+                        <label id="position-label" for="position">Position</label><br>
+                        <select name="position" id="position" class="form-control" required> 
+                            <option value="" disabled selected >Choose a position</option>
+                            <option value="All">All Positions</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Reader">Reader</option>
+                            <option value="Senior Lecturer">Senior Lecturer</option>
+                            <option value="Lecturer">Lecturer</option>
+                        </select>  
+                    </form>
+                    <form class='submit-button'>
+                        <input type='submit'  form='filter-form'>
+                    </form>
+                </div>
+       
+            <div class="row justify-content-center no-gutters">
+        
+                        
+                <?php 
+                    require_once 'includes/login.php';
+                    $conn = new mysqli($hn, $un, $pw, $db);
+                    if ($conn->connect_error) die('Fatal Error');
+
+                    if(isset($_POST['position'])) 
+                    {
+        
+                    
+                    
+                        if($_POST['position'] == 'All') {
+                            $query = "SELECT * FROM staff";
+                        }
+                        elseif($_POST['position'] == 'Professor') {
+                            $query = "SELECT * FROM staff WHERE Position='Professor'";
+                            }
+                        elseif($_POST['position'] == 'Reader') {
+                            $query = "SELECT * FROM staff WHERE Position='Reader'";
+                        }
+                        elseif($_POST['position'] == 'Senior Lecturer') {
+                            $query = "SELECT * FROM staff WHERE Position='Senior Lecturer'"; 
+                        }
+                        elseif($_POST['position'] == 'Lecturer') {
+                            $query = "SELECT * FROM staff WHERE Position='Lecturer'";
+                        }
+                        
+                    
+                        else {
+                            echo "Error";
+                        }
+
+                        $result = $conn->query($query); //results from query
+                        
+                        if (!$result) die('Fatal Erorr');
+                        ?>
+                        <table class='main-table'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Position</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                                $rows = $result->num_rows;
+                                for ($j = 0; $j < $rows ; ++$j){
+
+                                    $row = $result-> fetch_array(MYSQLI_ASSOC);?>
+                                    <tr>
+                                        <td><?php echo $row['ID'] ?></td>
+                                        <td><?php echo $row['Name'] ?></td>
+                                        <td><?php echo $row['Email'] ?></td>
+                                        <td><?php echo $row['Position']?></td>
+                                        <td><a href ="edit.php?id=<?php echo $row['ID'];?>">Edit</td>
+                                        <td><a href ="delete.php?id=<?php echo $row['ID'];?>">Delete</td>
+                                    </tr>
+                            <?php }} ?>
+                        </tbody>
+                    </table> 
+                    <?php 
+                        $conn->close(); //close database connection
+                        ?>
+                  
+            </div>
+        </div>
+    </div>                
+                            
+                        
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
