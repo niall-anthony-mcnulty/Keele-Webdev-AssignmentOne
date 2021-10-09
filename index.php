@@ -38,7 +38,7 @@
                     if (!$result) die('Fatal Erorr');
                 ?>
 
-                <table class='main-table'>
+                <table class='main-table tablemobile'>
                     <thead>
                         <tr>
                             <th>ID</th>
