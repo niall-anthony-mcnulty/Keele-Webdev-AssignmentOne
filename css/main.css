@@ -1,15 +1,17 @@
+
+/* Main Body Styling */
+
 body {
 
     background-color: #FFAAA5;
     font-family: 'Sora', sans-serif;
+    text-align:center;
 }
-
 
 .container-fluid {
     display:flex;
 
 }
-
 
 .center {
 
@@ -20,105 +22,19 @@ body {
 }
 
 
-/* Navigation */ 
-nav {
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 0;
-    color: #FFD3B6;
-    font-size: 200%;
-    text-decoration: none;
-    font-family: 'Sora', sans-serif;
-  }
-  nav ul {
-    list-style: none;
-    text-align: center;
-  }
-  nav ul li {
-    display: inline-block;
-  }
-  nav ul li a {
-    display: block;
-    padding: 15px;
-    text-decoration: none;
-    color: #FFD3B6;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin: 0 10px;
-  }
-  nav ul li a,
-  nav ul li a:after,
-  nav ul li a:before {
-    transition: all .3s;
-  }
- 
-  /* Underline + Fill */
-
-
-nav.fill ul li a {
-position: relative;
-}
-
-nav.fill ul li a:after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: #aaa;
-  height: 1px;
-}
-
-
-nav.fill ul li a {
-  transition: all 1.3s;
-}
-
-
-nav.fill ul li a:hover {
-  color: #fff;
-  z-index: 1;
-}
-nav.fill ul li a:hover:after {
-  z-index: -10;
-  animation: fill 0.5s forwards;
-  -webkit-animation: fill 0.5s forwards;
-  -moz-animation: fill 0.5s forwards;
-  opacity: 1;
-}
-
-
-
-@keyframes fill {
-    0% {
-      width: 0%;
-      height: 1px;
-    }
-    50% {
-      width: 100%;
-      height: 1px;
-    }
-    100% {
-      width: 100%;
-      height: 100%;
-      background: #333;
-    }
-  }
-  
-
-/* FORM */
+/* Form Styling */
 
 
 form {
-    background-color:lightsalmon;
+    background-color:#FFDAC7;
     border-radius:0.5rem;
     padding: 1rem;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 20px;
-}
+    width: 60%;
+    display: inline-block;
+    
+                }
 input {
     width:fit-content;
     font-style:italic;
@@ -128,7 +44,8 @@ input {
 
 label {
     text-align: left;
-    align-content: left;  
+    align-content: left; 
+    float:left; 
 }
 
 select {
@@ -148,60 +65,23 @@ select {
     margin-top:0;
 }
 
-input[type=range] {
-
-        width: 100%;
-        height:0px;     
+.submit-button {
+    background-color:#FFAAA5;
 }
 
-input[type=range] {
-    -webkit-appearance: none;
-    margin: 5px 0;
-    width: 100%;
-  }
-
-
-  input[type=range]:focus {
-    outline: none;
-  }
-
-  input[type=range]::-webkit-slider-thumb
-  {
-    height: 25px;
-    width: 25px;
-    border-radius: 3px;
-    background-color:transparent;
-    background: url(../pictures/trumphead.png) center center no-repeat;
-    background-size: cover;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -12px;
-}
-  
-form p  {
-    font-size:1.1rem;
-    text-align: center;
-    padding-bottom:1rem;
-    padding-top:0rem;
-    margin-top:1rem;
-    margin-bottom:0rem;
-   
+select:required:invalid {
+    color: gray;
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 0;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px azure, 1px 1px 1px azure;
-    background:transparent;
-    border: 0.2px solid azure;
-  }
-
-#rating-great {
-    float:right;
-
+option[value=""][disabled] {
+    display: none;
 }
 
-.checkbox-social {
-    display:block;
+option {
+    color: black;
+}   
+
+.form-control {
+
+  color: #747474;
 }

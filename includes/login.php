@@ -3,7 +3,7 @@
 
     $hn = '127.0.0.1';
     $un = 'staff';
-    $pw = 'Hellburner5987';
+    $pw = 'admin123';
     $db = 'UNIVERSITY';
     $conn = new mysqli($hn, $un, $pw, $db);
     if (!$conn) {

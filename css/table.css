@@ -1,6 +1,5 @@
-/* Table styling */
 
-table {
+.main-table {
 
     border-collapse: collapse;
     margin: 25px 0;
@@ -9,43 +8,34 @@ table {
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
-}
+    }
 
 
-/* Styling table headers */
+    /* Styling table headers */
 
-table thead tr {
-    background-color: #009879;
+.main-table thead tr {
+    background-color: #333;
     color: #ffffff;
-    text-align: left;
-}
+    text-align: center;
+    }
 
-/* Styling table cells */
+    /* Styling table cells */
 
-table th,
-table td {
+.main-table th,
+.main-table td {
     padding: 12px 15px;
-}
+    }
 
-/* Styling table rows */
+    /* Styling table rows */
 
-table tbody tr {
+.main-table tbody tr {
     border-bottom: 1px solid #dddddd;
-}
+    }
 
-table tbody tr:nth-of-type(even) {
+.main-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
-}
+    }
 
-table tbody tr:last-of-type {
+.main-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
-}
-
-
-/* Style active row */
-
-styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
-
+    }
