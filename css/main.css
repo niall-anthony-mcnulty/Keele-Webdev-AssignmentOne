@@ -86,3 +86,65 @@ option {
 
   color: #747474;
 }
+
+
+/* Login Form */
+
+
+
+form.login-form {
+    background-color:#FFAAA5;
+    border-radius:0.5rem;
+    padding: 1rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 40%;
+    display: inline-block;
+    
+                }
+.login-form input {
+    width:fit-content;
+    font-style:italic;
+    text-align: left;
+    margin-bottom:1rem;
+}
+
+.login-form label {
+    text-align: left;
+    align-content: left; 
+    float:center; 
+}
+
+
+
+.submit-button {
+    background-color:#FFAAA5;
+}
+
+select:required:invalid {
+    color: gray;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: black;
+}   
+
+.log-control {
+
+  color: #747474;
+}
+
+#username-label {
+
+    padding:2px;
+ }
+
+#user-password {
+
+    padding:2px;
+}
+
