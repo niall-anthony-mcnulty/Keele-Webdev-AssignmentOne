@@ -1,4 +1,4 @@
-
+<?php require_once('includes/visitor-counter.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@
             </div>
             <div class='row justify-content-center no-gutters'>
                 <?php 
-                    require_once 'includes/dblogin.php';
+                    require 'includes/dblogin.php';
                     $conn = new mysqli($hn, $un, $pw, $db);
                     if ($conn->connect_error) die('Fatal Error');
 
@@ -74,6 +74,10 @@
 
         </div>  
     </div>
+    <?php 
+          require('includes/counter.php');
+    ?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 
