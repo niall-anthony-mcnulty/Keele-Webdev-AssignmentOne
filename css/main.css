@@ -107,7 +107,7 @@ form.login-form {
 
 .submit-button {
     background-color:#FFAAA5;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left:20px;
 }
 
@@ -181,4 +181,15 @@ input:-webkit-autofill::first-line {
 nav.fill { 
 
     margin-top: 10%;
+}
+
+
+#add-form { 
+
+    margin-top: 60px;
+}
+
+#filter-form { 
+
+    margin-top: 30px;
 }

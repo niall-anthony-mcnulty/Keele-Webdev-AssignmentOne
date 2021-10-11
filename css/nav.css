@@ -16,6 +16,8 @@ nav {
     text-align: center;
     padding: 0;
   }
+
+  
   nav ul li {
     display: inline-block;
   }
@@ -111,4 +113,9 @@ nav.fill ul li a:hover:after {
     text-transform: uppercase;
     margin: 0px;
   }
+  }
+
+  nav.fill {
+
+    margin: 0;
   }

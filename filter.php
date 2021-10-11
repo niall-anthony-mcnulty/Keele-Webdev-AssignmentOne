@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='css/nav.css'>
     <link rel='stylesheet' href='css/main.css'>
+    <link rel='stylesheet' href='css/nav.css'>
     <link rel='stylesheet' href='css/table.css'>
     <link rel="icon" href="images/data.png">
     <title>Filter Staff Member</title>
