@@ -196,6 +196,28 @@ nav.fill {
 
 footer { 
 
+   
     margin-top: 50px;
     margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.pagination { 
+
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+
+}
+
+.first, .second, .third, .forth {
+
+    padding: 5px;
+
+}
+
+div.counter {
+
+    display:flex;
+
 }
