@@ -34,9 +34,9 @@ if($passlist[$username] == $password){
                   <div class='center'>
                         <div class='row justify-content-center no-gutters'>
                               <?php 
+                              header("Refresh:5; url=http://localhost/week%204/Assignment/Keele-Webdev-AssignmentOne/loginpage.php", true, 303); 
                               echo "<h1>Login failed</h1><br>";
                               echo "Check username and password and try again!</h1>";
-                              header("Refresh:5; url=http://localhost/week%204/Assignment/Keele-Webdev-AssignmentOne/loginpage.php", true, 303); 
                               ?>
                         </div> 
                   </div>
