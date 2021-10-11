@@ -32,29 +32,39 @@
                     $conn = new mysqli($hn, $un, $pw, $db);
                     if ($conn->connect_error) die('Fatal Error');
 
-                    $query = "SELECT * FROM staff"; //query
-                    $result = $conn->query($query); //results from query
-                    
-                    if (!$result) die('Fatal Erorr');
-                ?>
+                        if (isset($_GET['pageno'])) {
+                            $pageno = $_GET['pageno'];
+                        } else {
+                            $pageno = 1;
+                        }
 
-                <table class='main-table tablemobile'>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Position</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            $rows = $result->num_rows;
-                            for ($j = 0; $j < $rows ; ++$j){
+                    $no_of_records_per_page = 10;
+                    $offset = ($pageno-1) * $no_of_records_per_page; 
 
-                                $row = $result-> fetch_array(MYSQLI_ASSOC);?>
+
+                    $total_pages_sql = "SELECT COUNT(*) FROM staff";
+                    $result = mysqli_query($conn,$total_pages_sql);
+                    $total_rows = mysqli_fetch_array($result)[0];
+                    $total_pages = ceil($total_rows / $no_of_records_per_page); ?>
+`
+                    <table class='main-table tablemobile'>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Position</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            $sql = "SELECT * FROM staff LIMIT $offset, $no_of_records_per_page";
+                            $res_data = mysqli_query($conn,$sql);
+                            while($row = mysqli_fetch_array($res_data)){ ?>
+
+                                    
                                 <tr>
                                     <td><?php echo $row['ID'] ?></td>
                                     <td><?php echo $row['Name'] ?></td>
@@ -63,9 +73,21 @@
                                     <td><a href ="edit.php?id=<?php echo $row['ID'];?>">Edit</td>
                                     <td><a href ="delete.php?id=<?php echo $row['ID'];?>">Delete</td>
                                 </tr>
-                        <?php } ?>
+                            <?php } ?>
                     </tbody>
                 </table> 
+            </div>
+            <div class='row justify-content-center no-gutters'>   
+                <ul class="pagination">
+                    <li><a href="?pageno=1" class='first'>First</a></li>
+                    <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?>">
+                        <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class='second'>Prev</a>
+                    </li>
+                    <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
+                        <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>" class='third'>Next</a>
+                    </li>
+                    <li><a href="?pageno=<?php echo $total_pages; ?>" class='forth'>Last</a></li>
+                </ul>
                 <?php 
                     $result->close();
                     $conn->close(); //close database connection
