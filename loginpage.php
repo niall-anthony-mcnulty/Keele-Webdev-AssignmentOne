@@ -28,17 +28,18 @@
             <div class='row justify-content-center no-gutters'>
                 <form action="authen.php" method="POST" class='login-form' id='login-form'>
                     <div class='username'>
-                        <label id="username-label" for="user-name">Username:</label>
+                        <label class='login-labels' id="username-label" for="user-name">Username:</label>
                         <input type="text" name="username" class='log-control' required />
                     </div>  
+                    <br>
                     <div class='password'>
-                        <label id="user-password" for="user-password">Password:</label>
+                        <label class='login-labels' id="user-password" for="user-password" >Password:</label>
                         <input type="password" name="password" class='log-control' required />
                     </div>
                 </form>
-                </form> 
                 <form class='submit-button'>
                     <input id='submit-login' type="submit" value="Login" form='login-form' />
+                    <input id='submit-reg' type="submit" value='Register' form='login-form' />
                 </form>
             </div>
         </div>  

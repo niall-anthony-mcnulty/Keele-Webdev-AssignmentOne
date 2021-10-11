@@ -99,26 +99,16 @@ form.login-form {
     margin-top: 0px;
     margin-bottom: 0px;
     width: 40%;
-    display: inline-block;
+    padding-right: 70px;
     
                 }
-.login-form input {
-    width:fit-content;
-    font-style:italic;
-    text-align: left;
-    margin-bottom:1rem;
-}
-
-.login-form label {
-    text-align: left;
-    align-content: left; 
-    float:center; 
-}
 
 
 
 .submit-button {
     background-color:#FFAAA5;
+    margin-top: 50px;
+    margin-left:20px;
 }
 
 select:required:invalid {
@@ -135,7 +125,14 @@ option {
 
 .log-control {
 
-  color: #747474;
+  color: black;
+  border-radius:2px;
+  border-width:1px;
+  text-align:left;
+  vertical-align:middle;
+  margin-bottom:0;
+
+  
 }
 
 #username-label {
@@ -146,5 +143,42 @@ option {
 #user-password {
 
     padding:2px;
+    border-right:5px;
+
 }
 
+
+div.username { 
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+div.password { 
+
+    display: flex;
+    justify-content: center;
+
+}
+
+
+input:-webkit-autofill::first-line {
+    
+    font-family: 'Sora', sans-serif; 
+
+    font-style:italic;
+    text-align: left;
+    margin-bottom:1rem;
+    
+}
+
+#user-password { 
+
+    margin-right: 1px;
+}
+
+nav.fill { 
+
+    margin-top: 10%;
+}
