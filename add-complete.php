@@ -25,7 +25,7 @@
             
             <?php
             // connect
-            require_once("includes/login.php");
+            require_once("includes/dblogin.php");
 
             //get variables
             $name = $_POST['name'];
